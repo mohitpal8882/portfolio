@@ -1,0 +1,673 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #0a192f; /* Dark navy base */
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Teal accent */
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00d4ff;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-name {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #b0b0b0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #00d4ff;
+    color: #0a192f;
+}
+
+.btn-primary:hover {
+    background: #00b4d8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+}
+
+.btn-secondary:hover {
+    background: #00d4ff;
+    color: #0a192f;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%);
+    animation: gradientShift 10s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #00d4ff;
+    margin: 0.5rem auto;
+}
+
+/* About Section */
+.about {
+    padding: 5rem 0;
+    background: #0f3460;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Skills Section */
+.skills {
+    padding: 5rem 0;
+    background: #0a192f;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    margin-bottom: 1rem;
+    color: #00d4ff;
+}
+
+.skill-bar {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-bar span {
+    flex: 1;
+    font-weight: bold;
+}
+
+.bar {
+    flex: 3;
+    height: 8px;
+    background: #1e3a5f;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: #00d4ff;
+    width: 0;
+    transition: width 1.5s ease;
+}
+
+/* Projects Section */
+.projects {
+    padding: 5rem 0;
+    background: #0f3460;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #1e3a5f;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+    margin-bottom: 1rem;
+    color: #00d4ff;
+}
+
+.project-card p {
+    margin-bottom: 1rem;
+}
+
+.tech {
+    font-style: italic;
+    color: #b0b0b0;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Experience Section */
+.experience {
+    padding: 5rem 0;
+    background: #0a192f;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #00d4ff;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #00d4ff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.timeline-meta {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 0;
+    background: #0f3460;
+    text-align: center;
+}
+
+.contact-text {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.icon-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.icon-link:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    fill: #00d4ff;
+}
+
+/* Scroll Zoom Animation */
+.zoom-scroll {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.zoom-scroll.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Responsive Zoom Adjustments */
+@media (max-width: 768px) {
+    .project-card.zoomed {
+        scale: 1.1;
+        width: 95%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-name {
+        font-size: 2.5rem;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-list {
+        display: none; /* Simple mobile nav; can be enhanced with JS for toggle */
+    }
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-item {
+        gap: 0.5rem;
+    }
+    .contact-icons {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .container {
+        padding: 0 10px;
+    }
+}
+/* Footer Section */
+.footer {
+    padding-top: 0;
+    margin-top: 20PX;
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Footer content */
+.footer-content {
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.95rem;
+    color: #000000;
+    font-weight: 500;   
+}
+
+/* Heart animation */
+.heart {
+    color: red;
+    animation: pulse 1.2s infinite;
+}
+
+/* Heart pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .footer-content {
+        font-size: 0.85rem;
+    }
+}
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(
+        circle,
+        rgba(0, 212, 255, 0.35) 0%,
+        rgba(0, 212, 255, 0.15) 40%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(8px);
+    z-index: 9999;
+}
+/* Data Science Animated Background */
+#data-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #0a192f;
+}
+/* ===============================
+   GEOMETRIC DISPLAY BACKGROUND
+================================ */
+
+.geo-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.geo-bg span {
+    position: absolute;
+    display: block;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 212, 255, 0.35),
+        rgba(138, 43, 226, 0.35)
+    );
+    animation: floatMove 20s linear infinite;
+    filter: blur(0.3px);
+}
+
+/* Different shapes */
+.geo-bg span:nth-child(1) {
+    width: 140px;
+    height: 140px;
+    top: 10%;
+    left: 5%;
+    animation-duration: 26s;
+}
+
+.geo-bg span:nth-child(2) {
+    width: 90px;
+    height: 90px;
+    top: 70%;
+    left: 10%;
+    animation-duration: 22s;
+}
+
+.geo-bg span:nth-child(3) {
+    width: 160px;
+    height: 160px;
+    top: 30%;
+    right: 10%;
+    animation-duration: 30s;
+}
+
+.geo-bg span:nth-child(4) {
+    width: 110px;
+    height: 110px;
+    bottom: 15%;
+    right: 20%;
+    animation-duration: 24s;
+}
+
+.geo-bg span:nth-child(5) {
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 45%;
+    animation-duration: 18s;
+}
+
+/* Animation */
+@keyframes floatMove {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-60px) rotate(180deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 0.4;
+    }
+}
+/* ===============================
+   Z-INDEX FIX (IMPORTANT)
+================================ */
+
+header,
+main,
+section,
+footer {
+    position: relative;
+    z-index: 1;
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* animation layer */
+.hero-animation {
+    position: absolute;
+    inset: 0;
+    z-index: 1;          /* 👈 content ke neeche */
+    pointer-events: none;
+}
+
+/* nodes */
+.hero-animation .node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 212, 255, 0.7);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* random positions */
+.hero-animation .node:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+.hero-animation .node:nth-child(2) { top: 60%; left: 25%; animation-delay: 1s; }
+.hero-animation .node:nth-child(3) { top: 40%; left: 70%; animation-delay: 2s; }
+.hero-animation .node:nth-child(4) { top: 75%; left: 55%; animation-delay: 3s; }
+.hero-animation .node:nth-child(5) { top: 30%; left: 85%; animation-delay: 4s; }
+
+/* floating effect */
+@keyframes float {
+    0%   { transform: translateY(0) scale(1); opacity: 0.6; }
+    50%  { transform: translateY(-25px) scale(1.3); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 0.6; }
+}
+
+/* content always top */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.hero-animation::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(transparent 95%, rgba(0,212,255,0.08) 96%),
+      linear-gradient(90deg, transparent 95%, rgba(0,212,255,0.08) 96%);
+    background-size: 40px 40px;
+}
+.hero-name {
+  position: relative;
+}
+
+.hero-name::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(0,212,255,0.25), transparent 60%);
+  animation: pulse 4s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.btn-secondary {
+  animation: floatBtn 3s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
